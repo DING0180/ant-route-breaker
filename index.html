@@ -480,6 +480,43 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 
 .quest-quiz > :last-child { margin-bottom: 0; }
 
+.quest-takeaway {
+  min-width: 0;
+  margin-block: 18px 0;
+  padding: clamp(16px, 2.5vw, 24px);
+  border: 2px solid #99b45f;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e7f3ac, #f7fbde);
+  color: var(--quest-ink);
+  scroll-margin-block-start: calc(var(--header, 0px) + 14px);
+}
+
+.quest-takeaway-label {
+  margin: 0 0 6px;
+  color: #385523;
+  font-size: .88rem;
+  font-weight: 790;
+  line-height: 1.45;
+}
+
+.quest-takeaway > .quest-takeaway-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 1.2rem + 1.35vw, 2.25rem);
+  font-weight: 880;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.quest-takeaway-detail {
+  margin: 8px 0 0;
+  color: #2e532f;
+  font-size: 1rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.quest-takeaway[hidden], .quest-takeaway-detail:empty { display: none; }
+
 .quest-clear {
   display: flex;
   align-items: center;
@@ -715,7 +752,7 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 
 @media print {
   .quest-reward, .quest-locked { display: none !important; }
-  .quest-quiz, .quest-clear { break-inside: avoid; }
+  .quest-quiz, .quest-takeaway, .quest-clear { break-inside: avoid; }
 }
 
 .fruit-trail {
@@ -2339,7 +2376,10 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
       goal: '找齐正方体的每个面',
       lead: '正方体有哪些面藏在背后？',
       steps: ['点空白面，让图案亮起来。', '转一转，继续找空白面。图案会跟着面一起转。'],
-      takeaway: '正方体由 6 个同样大的正方形围成。哪个面朝上、朝前，要看方块怎么转。相对的面始终是一对。两个面相接的边叫棱。',
+      takeaway: {
+        title: '正方体有 6 个面',
+        detail: '每个面都是同样大的正方形。两个面相接的边叫棱。转动方块时，面的位置看起来会变，相对的面始终是一对。',
+      },
       questions: [{ id: 'try-cube-six', prompt: '转动模型后，你数到了几个不同的面？', choices: ['3 个', '6 个', '8 个'], correct: 1, explanation: '每个图案标记一个不同的面。把藏起来的面也算进去，共 6 个。' }],
     },
     {
@@ -2347,7 +2387,10 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
       goal: '选出平面上的最短路线',
       lead: '在纸上，从 A 到 B 可以走三条路。',
       steps: ['猜一猜，哪只蚂蚁先到 B？', '让三只蚂蚁同时出发，看看谁先到。'],
-      takeaway: '在平面上，两点之间线段最短。图中的折线和曲线都绕了路。',
+      takeaway: {
+        title: '两点之间，线段最短',
+        detail: '在平面上，从 A 到 B 直接走线段，比走折线或曲线都短。',
+      },
       questions: [{ id: 'try-plane-line', prompt: '在同一个平面上，从 A 走到 B，哪种走法最短？', choices: ['沿线段 AB 直直走', '沿折线绕一个弯', '沿曲线绕过去'], correct: 0, explanation: '两点之间线段最短。这三条路线的起点和终点相同，直接连接 A、B 的那一条是线段。' }],
     },
     {
@@ -2355,7 +2398,10 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
       goal: '找出蚂蚁跨过的棱',
       lead: '蚂蚁要贴着表面，从 A 爬到另一个面上的 B。',
       steps: ['先找 A 和 B。', '播放蚂蚁，边看边转动模型。', '跨棱时暂停，找两段路线接在哪里。'],
-      takeaway: '蚂蚁先走前面，再走上面，在两个面共用的棱上换面。',
+      takeaway: {
+        title: '跨过公共棱，就到了相邻的面',
+        detail: '蚂蚁一直贴着方块表面，在前面和上面共用的棱上换面。',
+      },
       questions: [
         { id: 'try-cross-faces', prompt: '以复位视角为准，蚂蚁从 A 走到 B，先后经过哪两个面？', choices: ['前面、右面', '下面、上面', '前面、上面'], correct: 2, explanation: 'A 在前面。蚂蚁越过前面和上面共用的棱，接着走到上面的 B。' },
         { id: 'try-cross-surface', prompt: '这道题中，蚂蚁可以直接穿过正方体内部吗？', choices: ['可以', '不可以，只能沿表面走'], correct: 1, explanation: '题目规定蚂蚁只能沿表面走，所以路线的每一段都必须贴着正方体的面或棱。' },
@@ -2366,7 +2412,10 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
       goal: '数等长小段来比路线',
       lead: '两条路线都从 A 到 B，每小段都斜着穿过一格。',
       steps: ['选路线①，点每一小段做记号。', '换路线②，跨过棱也继续数。', '比较两条路线的段数。'],
-      takeaway: '一样大的方格，对角线一样长。路线只走这些对角线时，段数越多，路就越长。',
+      takeaway: {
+        title: '每段一样长，段数越少，路线越短',
+        detail: '一样大的方格，对角线一样长。这两条路线都只走方格对角线，所以数段就能比长短。',
+      },
       questions: [
         { id: 'try-grid-compare', prompt: '观察并数一数图中的两条路线。哪一条较短？', choices: ['路线①较短', '路线②较短', '一样长'], correct: 0, explanation: '路线①走了 3 段，路线②走了 5 段。每段都是等大的小方格对角线，所以 3 段较短。' },
         { id: 'try-grid-mixed', prompt: '一条路线走 3 条方格边，另一条走 3 条小方格对角线。能用“都是 3 段”判断它们一样长吗？', choices: ['能', '不能'], correct: 1, explanation: '小方格的一条边和一条对角线长度不同。段数相同时，也要看每段的长度。' },
@@ -2377,7 +2426,10 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
       goal: '展开两面找最短路线',
       lead: 'A 和 B 的位置固定，蚂蚁可以选在哪里跨棱。',
       steps: ['拖动跨棱点 P，比较长度。', '展开两个面，看看路线在哪儿拐弯。', '点「验证线段 AB」，看路线变直，再去答题。'],
-      takeaway: '展开只转动面，每段路线的长度都保持不变。线段 AB 完全在展开图里，折回后就是这两个面上的最短路线。',
+      takeaway: {
+        title: '展开这两个面，沿线段 AB 走最短',
+        detail: '展开和折回时，每段路线的长度都不变。把展开图里的线段 AB 折回去，就是这两个面上的最短路线。',
+      },
       questions: [{ id: 'try-unfold-why', prompt: '把相邻两个面展开后，为什么沿线段 AB 走最短？', choices: ['跨棱点只要在棱上就一样短', '两点之间线段最短', '经过的面越少就一定越短'], correct: 1, explanation: '展开前后，面上的每一段长度保持原样。展开后 AB 是在这个长方形内的线段，因此给出了这两个面上的最短走法。' }],
     },
     {
@@ -2385,7 +2437,6 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
       goal: '比较长方体上的路线',
       lead: '长方体的各个面仍铺着一样大的小正方格。',
       steps: ['选「只走对角线」，数斜线。', '选「边与对角线」，分开数两种小段。'],
-      takeaway: '两条路线各去掉同样长的一部分，再比较剩下的。一个方格里，走两条相邻边比走对角线长。',
       questions: [
         { id: 'try-cuboid-diagonal', prompt: '长方体各面的小方格一样大。两条路线都沿小方格对角线走，该怎样比较长短？', choices: ['数对角线段数', '数每条路线经过几个面', '看哪个面的面积大'], correct: 0, explanation: '路线①有 3 段，路线②有 5 段。无论小方格在哪个面，它的对角线都可以当作同一个长度单位，所以路线①较短。' },
         { id: 'try-cuboid-mixed', prompt: '路线①走 3 条方格边和 1 条对角线，路线②走 1 条方格边和 2 条对角线。哪条较短？', choices: ['路线①', '路线②', '一样长'], correct: 1, explanation: '两条路各去掉 1 条方格边和 1 条对角线。①剩两条边，②剩一条对角线。想象同一个小正方格：沿两条相邻边拐弯比沿对角线直走更长，所以②较短。' },
@@ -5111,11 +5162,11 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
   }
   const shapeQuestion = {id:'try-cuboid-shape',prompt:'把滑块拉到底后，六个面还是一样大的正方形吗？',choices:['还是','不是'],correct:1,explanation:'长、宽、高分别是 6、4、3 格。每个面的相邻两条边都不等长，所以六个面都是长方形。'};
   const netsQuestion = {id:'try-cuboid-nets',prompt:'比较图中的两种走法，哪一条较短？',choices:['路线①','路线②','一样长'],correct:0,explanation:'①经过前面和上面，长度为 4 格。②多绕过右面，测得约 4.47 格。所以在这两条路线中，①较短。'};
-  const challengeDiscoveries = {
-    main:'每小段都是等大的方格对角线。路线①有 3 段，路线②有 5 段，所以路线①较短。',
-    mixed:'两条路线各去掉一条方格边和一条对角线。路线①剩两条方格边，路线②剩一条对角线，路线②较短。',
-    nets:'把经过的面铺平，每一段的长度保持原样。路线①长 4 格，路线②约 4.47 格，所以这两条路线里路线①较短。',
-    shape:'拉到底后，每个面的两条相邻边都不等长，六个面都是长方形。相对的两个面仍然一样大。',
+  const challengeTakeaways = {
+    main:{title:'对角线一样长，数段就能比长短',detail:'路线①有 3 段，路线②有 5 段，每段一样长，所以路线①较短。'},
+    mixed:{title:'去掉同样长的一部分，再比剩下的',detail:'两条路线各去掉一条方格边和一条对角线。①剩两条边，②剩一条对角线，所以路线②较短。'},
+    nets:{title:'把面展开，路线的长度不变',detail:'路线①长 4 格，路线②约 4.47 格，所以这两条路线里路线①较短。'},
+    shape:{title:'长方体相对的两个面一样大',detail:'拉到底后，六个面都是长方形。每个面和它相对的面形状、大小都一样。'},
   };
   const exercises = lesson.stages.flatMap(stage => stage.questions).concat(shapeQuestion,netsQuestion);
   const allQuestionIds = new Set([...exercises,...lesson.exit].map(question => question.id));
@@ -5644,14 +5695,16 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const questionBox = el('div');
     const quiz = el('section',{class:'quest-quiz',hidden:''},quizTitle,questionBox);
     const clear = el('div',{class:'quest-clear',hidden:''},el('p',{class:'quest-clear-text',role:'status'},'通关！拿到探索小花。'));
-    const discoveryText = el('p',{},terms(stage.takeaway));
-    const discovery = el('details',{class:'takeaway',hidden:''},el('summary',{},'看发现'),discoveryText);
+    const takeawayTitle = el('h2',{class:'quest-takeaway-title',id:'stage-takeaway-heading'});
+    const takeawayDetail = el('p',{class:'quest-takeaway-detail'});
+    const takeaway = el('section',{class:'quest-takeaway',hidden:'','aria-labelledby':takeawayTitle.id},
+      el('p',{class:'quest-takeaway-label'},'本关收获'),takeawayTitle,takeawayDetail);
     const index = navigation.findIndex(([id]) => id === stage.id);
     const next = stage.optional ? 'exit' : navigation[index+1][0];
     const goNext = button(stage.optional ? '返回出门条' : '下一关 →',() => go(next),'primary');
     const actions = el('div',{class:'next-actions'},stage.optional ? goNext : button('返回上一页',() => go(navigation[index-1][0]),'quiet'));
     if (!stage.optional) clear.append(goNext);
-    content.append(steps,extra,meter.root,locked,quiz,clear,discovery,actions);
+    content.append(steps,extra,meter.root,locked,quiz,takeaway,clear,actions);
     if (['cross','grid','unfold'].includes(stage.id)) content.prepend(el('p',{class:'lead'},terms(stage.lead)));
     const workshop = el('div',{class:'workshop'},heading,content,labSlot);
     main.append(workshop);
@@ -5677,8 +5730,15 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
         el('img',{src:mascot,alt:''}),el('span',{},message),el('span',{class:'quest-arrival-arrow','aria-hidden':'true'},nextLevel ? '→' : '↓'));
       if (nextLevel && !stage.optional) clear.classList.add('with-arrival');
       target.before(arrival);
-      const targetBounds = target.getBoundingClientRect();
-      if (targetBounds.top < 60 || targetBounds.top > innerHeight-108) arrival.scrollIntoView({block:'nearest'});
+      if (nextLevel) {
+        const header = narrowNav.matches ? 60 : 10;
+        if (takeaway.getBoundingClientRect().top < header || target.getBoundingClientRect().bottom > innerHeight - 12) {
+          takeaway.scrollIntoView({block:'center'});
+        }
+      } else {
+        const targetBounds = target.getBoundingClientRect();
+        if (targetBounds.top < 60 || targetBounds.top > innerHeight-108) arrival.scrollIntoView({block:'nearest'});
+      }
     }
     function updateQuiz(animateArrival = false) {
       const tally = current.filter(success).length;
@@ -5691,7 +5751,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       });
       const done = passedNow();
       clear.hidden = !done;
-      discovery.hidden = !done;
+      takeaway.hidden = !done;
       if (lastEvidence) meter.update(lastEvidence,true,done);
       if (rewardPending) return;
       if (done) {
@@ -5714,10 +5774,9 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     }
     function renderQuiz(variant) {
       if (variant === 'nets') window.ChallengeNets.render(questionBox);
-      if (stage.optional) {
-        discovery.open = false;
-        discoveryText.textContent = challengeDiscoveries[variant];
-      }
+      const summary = stage.optional ? challengeTakeaways[variant] : stage.takeaway;
+      takeawayTitle.textContent = summary.title;
+      takeawayDetail.replaceChildren(terms(summary.detail));
       forms = current.map(question => questionForm(question,{onAnswer(correct,field,fruit) {
         removeArrival();
         if (passed()) updateHeader();
@@ -5751,7 +5810,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
         removeArrival(); rewardPending = undefined;
         key = nextKey; forms = []; current = questionsFor(variant);
         questionBox.replaceChildren();
-        quiz.hidden = true; clear.hidden = true; discovery.hidden = true;
+        quiz.hidden = true; clear.hidden = true; takeaway.hidden = true;
       }
       lastEvidence = evidence;
       const evidenceKey = stage.id === 'unfold' ? 'unfold:straight' : key;
