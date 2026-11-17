@@ -6341,6 +6341,17 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && document.body.classList.contains('rail-open')) toggleRail(false, true); });
   narrowNav.addEventListener('change', () => toggleRail(false));
   toggleRail(false);
+  if (window.self !== window.top) {
+    document.addEventListener('click',event => {
+      if (event.defaultPrevented) return;
+      const href = event.target.closest('a[href^="#"]')?.getAttribute('href');
+      const stageId = href?.slice(1);
+      if (!navLinks.has(stageId)) return;
+      // In a srcdoc frame a relative link otherwise resolves against the student portal.
+      event.preventDefault();
+      if (location.hash !== href) go(stageId);
+    });
+  }
   document.addEventListener('click',event => {
     const control = event.target.closest('button,a,summary,.choice');
     if (!control || control.matches(':disabled') || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
