@@ -11,7 +11,7 @@
   <style>:root{color-scheme:light;--ink:#1e2541;--muted:#545e78;--purple:#4435a5;--purple-dark:#33257f;--violet-pale:#ebe9fc;--paper:#f7f7f2;--white:#fff;--line:#dcdde9;--mint:#e5f3ea;--green:#225842;--rose:#f9eeea;--rust:#883f30;--radius:18px;--header:126px}
 *{box-sizing:border-box}html{scroll-padding-top:calc(var(--header) + 15px)}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Nunito","Microsoft YaHei UI","Microsoft YaHei","PingFang SC",system-ui,sans-serif;font-size:16px;line-height:1.65}button,input,textarea{font:inherit}button,a,label,input[type="range"]{touch-action:manipulation}a{color:var(--purple)}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:8px 14px;background:var(--white);color:var(--ink);font-weight:650;min-height:42px}button:hover{border-color:#9a91d2;background:#f7f6ff}button:disabled{cursor:default;opacity:.55}button[aria-pressed="true"]{border-color:var(--purple);background:var(--violet-pale);color:var(--purple-dark)}:focus-visible{outline:3px solid #755ee3;outline-offset:3px}p{margin:0 0 14px}h1,h2,h3{line-height:1.25;text-wrap:balance;margin:0}h1{font-size:clamp(2rem,3.6vw,3.1rem);letter-spacing:-.06em;font-weight:860}h2{font-size:1.18rem}h3{font-size:1rem}.skip{position:fixed;top:5px;left:10px;transform:translateY(-180%);background:white;z-index:12;padding:10px}.skip:focus{transform:none}
 .mast{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);box-shadow:0 3px 13px #28265e07}.mast-inner,.tabs,.page{width:min(1340px,calc(100% - 64px));margin-inline:auto}.mast-inner{height:67px;display:flex;gap:20px;align-items:center}.brand{display:inline-flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;font-weight:850;white-space:nowrap;font-size:1.08rem}.brand-icon{display:grid;place-items:center;width:36px;height:36px;background:var(--purple);color:white;border-radius:10px;font-size:26px;line-height:1}.mast-progress{display:flex;align-items:center;gap:12px;margin-left:auto;font-size:.83rem;color:var(--muted);white-space:nowrap}.mast-progress progress{width:94px;height:6px;appearance:none;border:0;border-radius:10px;overflow:hidden;background:var(--violet-pale)}progress::-webkit-progress-bar{background:var(--violet-pale)}progress::-webkit-progress-value{background:var(--purple)}progress::-moz-progress-bar{background:var(--purple)}.quiet{border-color:transparent;background:transparent;color:var(--muted);padding:6px 10px;font-size:.87rem;min-height:36px}.tabs{display:flex;align-items:stretch;gap:4px;overflow-x:auto;scrollbar-width:thin}.tab{display:flex;align-items:center;gap:6px;flex:0 0 auto;position:relative;padding:11px 13px 13px;border:0;background:transparent;color:var(--muted);text-decoration:none;font-size:.89rem;font-weight:740;white-space:nowrap}.tab[aria-current="step"]{color:var(--purple-dark);background:linear-gradient(transparent,#eeecfb)}.tab[aria-current="step"]::after{content:"";position:absolute;left:9px;right:9px;bottom:0;height:3px;border-radius:4px;background:var(--purple)}.tab-index{font-variant-numeric:tabular-nums;font-size:.75em;color:var(--muted)}.tab-index.done{color:var(--green);font-size:1em}
-.page{padding:38px 0 64px}.stage-head{margin-bottom:22px}.time{display:inline-block;color:var(--muted);font-size:.86rem;margin-top:9px}.workshop{display:grid;grid-template-columns:minmax(300px,.79fr) minmax(430px,1.21fr);gap:clamp(26px,4vw,58px);align-items:start}.content p.lead{font-size:1.07rem;color:var(--muted);margin-bottom:20px}.content h2{margin-bottom:9px}.steps{padding:16px 18px 14px 39px;margin:0 0 22px;background:#eeeee7;border-radius:14px}.steps li{padding-left:4px;margin-bottom:5px}.steps li::marker{font-weight:800;color:var(--purple)}.steps li:last-child{margin-bottom:0}.term{display:inline;background:none;border:0;border-bottom:1px dotted currentColor;border-radius:0;min-height:auto;padding:0 1px;color:var(--purple);font-weight:750;text-decoration:none}.term:hover{background:var(--violet-pale)}.lab-slot{position:sticky;top:calc(var(--header) + 17px);min-width:0}.lab{border:1px solid #d8d9ed;border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 10px 35px #2a28600c}.lab-head{height:auto;min-height:52px;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:13px 18px}.lab-title{font-size:.96rem}.lab-hint{color:var(--muted);font-size:.8rem;text-align:right}.screen{background-color:#f0effe;background-image:radial-gradient(#b7b3d6 0.65px,transparent 0.65px);background-size:17px 17px;overflow:hidden;position:relative}.screen canvas{display:block;width:100%;height:clamp(300px,49vh,530px);touch-action:none;cursor:grab}.screen canvas:active{cursor:grabbing}.screen canvas:focus-visible{outline-offset:-4px}.lab-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px 14px}.lab-controls:empty{display:none}.lab-controls button{min-height:37px;padding:5px 11px;font-size:.86rem}.lab-readout{margin:0;padding:0 16px 13px;color:var(--muted);font-size:.87rem}.lab-readout:empty{display:none}.subcontrols{display:grid;gap:7px;flex-basis:100%;padding:2px 0 0}.range-row{display:flex;align-items:center;gap:9px;font-size:.81rem;color:var(--muted)}.range-row input{flex:1;min-width:80px;accent-color:var(--purple)}.rotate-group{display:flex;gap:4px}.rotate-group button{width:37px;padding:0}.minor{color:var(--muted);font-size:.87rem;margin:8px 0}.soft{background:#f5f4ff}.primary{border-color:var(--purple);background:var(--purple);color:#fff;padding:10px 19px}.primary:hover{border-color:var(--purple-dark);background:var(--purple-dark)}.next-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px}.compact{padding:3px 9px;min-height:34px;font-size:.86rem}.record-panel{margin:15px 0}.record-panel table{font-size:.9rem}.question{border:0;padding:0;margin:0 0 16px;min-inline-size:0}.question legend{display:block;padding:0;margin-bottom:9px;font-weight:750}.choice-row{display:flex;flex-wrap:wrap;gap:7px}.choice{display:flex;align-items:flex-start;gap:7px;padding:7px 10px;background:#fff;border:1px solid var(--line);border-radius:9px;font-size:.94rem;cursor:pointer;line-height:1.4;min-height:38px}.choice:has(:checked){border-color:var(--purple);background:var(--violet-pale);color:var(--purple-dark)}.choice input{margin:3px 0 0;accent-color:var(--purple);flex:none}.question .check{margin-top:8px}.feedback{font-size:.91rem;padding:10px 13px;border-radius:10px;margin:8px 0 0;background:var(--mint);color:var(--green)}.feedback.wrong{background:var(--rose);color:var(--rust)}.feedback[hidden]{display:none}.takeaway{border-left:4px solid #8173d7;padding:10px 13px;background:#eeecfb;margin:17px 0 0;border-radius:0 9px 9px 0}.takeaway summary{cursor:pointer;font-weight:750;color:var(--purple-dark)}.takeaway p{margin:7px 0 1px}.answer-number{display:inline-grid;place-items:center;border-radius:7px;background:var(--violet-pale);color:var(--purple-dark);width:26px;height:26px;margin-right:8px}.bank-img{display:block;width:100%;max-width:530px;max-height:270px;object-fit:contain;object-position:left center;margin:5px 0 10px;border:1px solid var(--line);border-radius:10px;background:#f9f8ff}.exit-layout{max-width:840px}.exit-layout .question{margin:0;padding:17px 0 14px;border-bottom:1px solid var(--line)}.reflection{display:block;margin:23px 0 0;font-weight:750}.reflection textarea{display:block;width:100%;margin-top:5px;padding:10px 13px;color:var(--ink);border:1px solid var(--line);border-radius:10px;background:white;font-weight:400;resize:vertical;min-height:86px}.notice{padding:13px 15px;background:var(--mint);color:var(--green);border-radius:10px;margin:13px 0}.notice:empty{display:none}.cloud{font-size:.85rem;color:var(--muted);margin:10px 0}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}table{border-collapse:collapse;width:100%;text-align:left}caption{padding:9px 12px;background:#eeecfa;color:var(--purple-dark);font-weight:750;text-align:left}th,td{padding:7px 12px;border-bottom:1px solid #eeedf4}tbody tr:last-child td{border-bottom:0}th{color:var(--ink);font-size:.9rem;background:#f9f9fc}dialog{border:1px solid var(--line);border-radius:17px;max-width:min(640px,calc(100% - 26px));max-height:92vh;padding:24px;color:var(--ink);box-shadow:0 14px 60px #2a26565a}dialog::backdrop{background:#21244373}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}dialog p:last-child{margin:16px 0 0}.optional-tools{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 15px}.explain{margin:16px 0}
+.page{padding:38px 0 64px}.stage-head{margin-bottom:22px}.time{display:inline-block;color:var(--muted);font-size:.86rem;margin-top:9px}.workshop{display:grid;grid-template-columns:minmax(300px,.79fr) minmax(430px,1.21fr);gap:clamp(26px,4vw,58px);align-items:start}.content p.lead{font-size:1.07rem;color:var(--muted);margin-bottom:20px}.content h2{margin-bottom:9px}.steps{padding:16px 18px 14px 39px;margin:0 0 22px;background:#eeeee7;border-radius:14px}.steps li{padding-left:4px;margin-bottom:5px}.steps li::marker{font-weight:800;color:var(--purple)}.steps li:last-child{margin-bottom:0}.term{display:inline;background:none;border:0;border-bottom:1px dotted currentColor;border-radius:0;min-height:auto;padding:0 1px;color:var(--purple);font-weight:750;text-decoration:none}.term:hover{background:var(--violet-pale)}.lab-slot{position:sticky;top:calc(var(--header) + 17px);min-width:0}.lab{border:1px solid #d8d9ed;border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 10px 35px #2a28600c}.lab-head{height:auto;min-height:52px;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:13px 18px}.lab-title{font-size:.96rem}.lab-hint{color:var(--muted);font-size:.8rem;text-align:right}.screen{background-color:#f0effe;background-image:radial-gradient(#b7b3d6 0.65px,transparent 0.65px);background-size:17px 17px;overflow:hidden;position:relative}.screen canvas{display:block;width:100%;height:clamp(300px,49vh,530px);touch-action:none;cursor:grab}.screen canvas:active{cursor:grabbing}.screen canvas:focus-visible{outline-offset:-4px}.lab-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px 14px}.lab-controls:empty{display:none}.lab-controls button{min-height:37px;padding:5px 11px;font-size:.86rem}.lab-readout{margin:0;padding:0 16px 13px;color:var(--muted);font-size:.87rem}.lab-readout:empty{display:none}.subcontrols{display:grid;gap:7px;flex-basis:100%;padding:2px 0 0}.range-row{display:flex;align-items:center;gap:9px;font-size:.81rem;color:var(--muted)}.range-row input{flex:1;min-width:80px;accent-color:var(--purple)}.minor{color:var(--muted);font-size:.87rem;margin:8px 0}.soft{background:#f5f4ff}.primary{border-color:var(--purple);background:var(--purple);color:#fff;padding:10px 19px}.primary:hover{border-color:var(--purple-dark);background:var(--purple-dark)}.next-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px}.compact{padding:3px 9px;min-height:34px;font-size:.86rem}.record-panel{margin:15px 0}.record-panel table{font-size:.9rem}.question{border:0;padding:0;margin:0 0 16px;min-inline-size:0}.question legend{display:block;padding:0;margin-bottom:9px;font-weight:750}.choice-row{display:flex;flex-wrap:wrap;gap:7px}.choice{display:flex;align-items:flex-start;gap:7px;padding:7px 10px;background:#fff;border:1px solid var(--line);border-radius:9px;font-size:.94rem;cursor:pointer;line-height:1.4;min-height:38px}.choice:has(:checked){border-color:var(--purple);background:var(--violet-pale);color:var(--purple-dark)}.choice input{margin:3px 0 0;accent-color:var(--purple);flex:none}.question .check{margin-top:8px}.feedback{font-size:.91rem;padding:10px 13px;border-radius:10px;margin:8px 0 0;background:var(--mint);color:var(--green)}.feedback.wrong{background:var(--rose);color:var(--rust)}.feedback[hidden]{display:none}.takeaway{border-left:4px solid #8173d7;padding:10px 13px;background:#eeecfb;margin:17px 0 0;border-radius:0 9px 9px 0}.takeaway summary{cursor:pointer;font-weight:750;color:var(--purple-dark)}.takeaway p{margin:7px 0 1px}.answer-number{display:inline-grid;place-items:center;border-radius:7px;background:var(--violet-pale);color:var(--purple-dark);width:26px;height:26px;margin-right:8px}.bank-img{display:block;width:100%;max-width:530px;max-height:270px;object-fit:contain;object-position:left center;margin:5px 0 10px;border:1px solid var(--line);border-radius:10px;background:#f9f8ff}.exit-layout{max-width:840px}.exit-layout .question{margin:0;padding:17px 0 14px;border-bottom:1px solid var(--line)}.reflection{display:block;margin:23px 0 0;font-weight:750}.reflection textarea{display:block;width:100%;margin-top:5px;padding:10px 13px;color:var(--ink);border:1px solid var(--line);border-radius:10px;background:white;font-weight:400;resize:vertical;min-height:86px}.notice{padding:13px 15px;background:var(--mint);color:var(--green);border-radius:10px;margin:13px 0}.notice:empty{display:none}.cloud{font-size:.85rem;color:var(--muted);margin:10px 0}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}table{border-collapse:collapse;width:100%;text-align:left}caption{padding:9px 12px;background:#eeecfa;color:var(--purple-dark);font-weight:750;text-align:left}th,td{padding:7px 12px;border-bottom:1px solid #eeedf4}tbody tr:last-child td{border-bottom:0}th{color:var(--ink);font-size:.9rem;background:#f9f9fc}dialog{border:1px solid var(--line);border-radius:17px;max-width:min(640px,calc(100% - 26px));max-height:92vh;padding:24px;color:var(--ink);box-shadow:0 14px 60px #2a26565a}dialog::backdrop{background:#21244373}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}dialog p:last-child{margin:16px 0 0}.optional-tools{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 15px}.explain{margin:16px 0}
 @media(max-width:930px){.mast-inner,.tabs,.page{width:calc(100% - 38px)}.page{padding-top:27px}.workshop{grid-template-columns:minmax(250px,1fr) minmax(350px,1.25fr);gap:22px}.screen canvas{height:clamp(270px,45vh,400px)}.lab-head{padding-inline:12px}}
 @media(max-width:710px){:root{--header:105px}.mast-inner,.tabs,.page{width:calc(100% - 26px)}.mast-inner{height:56px;gap:7px}.brand{font-size:.94rem;gap:6px}.brand-icon{width:28px;height:28px;font-size:21px}.mast-progress{gap:5px;font-size:.72rem}.mast-progress progress{display:none}.quiet{padding-inline:5px}.tab{font-size:.82rem;padding:9px 9px 10px}.page{padding:20px 0 44px}.stage-head{margin-bottom:13px}h1{font-size:clamp(1.8rem,8vw,2.55rem)}.workshop{display:flex;flex-direction:column;gap:16px}.lab-slot{position:static;width:100%;order:1}.content{width:100%;order:2}.screen canvas{height:clamp(255px,46vh,385px)}.lab-hint{font-size:.74rem}.lab-head{min-height:42px;padding:8px 10px}.lab-controls{padding:9px 10px;gap:6px}.lab-controls button{min-height:39px}.choice{min-height:41px}.lab-readout{padding-inline:11px}.choice-row{gap:6px}}
 @media print{.mast,.next-actions,.lab-controls,.quiet,.check{display:none!important}.page{width:100%;padding:0}.workshop{display:block}.lab-slot{position:static}.table-wrap,.question,.lab{break-inside:avoid}body{background:white}}
@@ -199,8 +199,6 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 .home-controls button { min-height: 43px; border-radius: 11px; padding: 7px 12px; font-size: .91rem; }
 .home-controls .home-play { color: #142e17; background: #ddf988; border-color: #efffb0; box-shadow: 0 3px 0 #6d992e; }
 .home-controls .home-play:hover { background: #edffa6; }
-.home-controls .home-reset { color: #f4f8de; background: #1c4934; border-color: #7da373; box-shadow: 0 3px 0 #091d12; }
-.home-controls .home-reset:hover { background: #2b5d43; }
 .home-controls > span { flex-basis: 100%; text-align: center; color: #ccdcb9; font-size: .8rem; }
 
 .home-missions { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; margin-top: 20px; }
@@ -636,6 +634,7 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
   outline-offset: 3px;
 }
 
+.face-lab-hints { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 5px 9px; }
 .face-tally {
   display: inline-flex;
   align-items: baseline;
@@ -1375,8 +1374,6 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 .play-route__actions button { min-height: 41px; border-color: #d3c2a1; background: #fffdf5; color: #23452b; font-weight: 800; }
 .play-route__actions .play-route__tab[aria-pressed="true"] { border-color: #82a456; background: #e4f3b4; box-shadow: inset 0 0 0 1px #82a456; }
 .play-route__actions .play-route__play:not(:disabled) { border-color: #b04e31; background: #b64b2b; color: #fffaf2; box-shadow: 0 3px #7c3422; }
-.play-route__rotate { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 5px; }
-.play-route__rotate button { width: 100%; min-width: 0; min-height: 36px; }
 .play-route__status { padding: 0 6px 9px 12px; color: #3d5730; font-weight: 720; }
 .play-route__center { padding: 0 6px 5px 12px; color: #4c5c3e; font-size: .82rem; }
 .play-route__center summary { cursor: pointer; }
@@ -1393,7 +1390,6 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
   .play-route__lab { display: block; }
   .play-route__screen canvas { height: clamp(242px, 39vh, 375px); }
   .play-route__actions { display: flex; padding: 10px 0; }
-  .play-route__rotate { grid-template-columns: repeat(4, 38px); }
   .play-route__status, .play-route__center { padding-inline: 3px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1485,20 +1481,7 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 .play-egg-spot:hover .play-egg-spark { background: #fff8bc; box-shadow: 0 0 0 6px #fff1a874, 0 0 24px #fff191; }
 .play-egg-spot.is-found .play-egg-spark { font-family: 'Segoe UI Emoji','Apple Color Emoji',sans-serif; animation: none; }
 
-.play-egg-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 0 0;
-}
-
-.play-egg-controls button { min-height: 44px; color: #2c5634; border-color: #b4c49e; background: #edf4d9; }
-.play-egg-controls button:hover { border-color: #799f6d; background: #deedc2; }
-.play-egg-more summary { cursor: pointer; color: #4d6742; font-weight: 720; font-size: .85rem; }
-.play-egg-more .lab-tool-group { margin-block: 7px 0; }
-.play-egg-turn { min-width: 44px; padding: 5px; font-size: 1.25rem; line-height: 1; }
-.play-eggs .play-egg-hint-button { margin-inline-start: auto; background: #fff0bd; border-color: #d8b470; color: #694919; }
+.play-eggs .play-egg-hint-button { min-height: 44px; margin-top: 10px; background: #fff0bd; border-color: #d8b470; color: #694919; }
 .play-eggs .play-egg-hint-button:hover { background: #ffe6a1; border-color: #b39048; }
 .play-egg-hint { margin: 8px 0 0; color: #62451a; font-size: .89rem; }
 
@@ -1614,8 +1597,6 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 
 @media (max-width: 420px) {
   .play-egg-lab, .play-egg-book { padding: 9px; }
-  .play-egg-controls { gap: 4px; }
-  .play-egg-controls button { min-width: 43px; padding-inline: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2411,8 +2392,7 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
         <div class="home-model"><canvas tabindex="0" aria-label="可拖动的正方体和蚂蚁，键盘方向键也能转动"></canvas></div>
         <div class="home-controls">
           <button id="home-play" class="home-play" type="button">▶ 播放蚂蚁</button>
-          <button id="home-reset" class="home-reset" type="button">↻ 复位</button>
-          <span>拖动方块转一转</span>
+          <span>直接拖动方块转一转</span>
         </div>
       </div>
     </section>
@@ -2681,7 +2661,7 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
         detail: '蚂蚁一直贴着方块表面，在前面和上面共用的棱上换面。',
       },
       questions: [
-        { id: 'try-cross-faces', prompt: '以复位视角为准，蚂蚁从 A 走到 B，先后经过哪两个面？', choices: ['前面、右面', '下面、上面', '前面、上面'], correct: 2, explanation: 'A 在前面。蚂蚁越过前面和上面共用的棱，接着走到上面的 B。' },
+        { id: 'try-cross-faces', prompt: '按刚打开这关时的方位，蚂蚁从 A 走到 B，先后经过哪两个面？', choices: ['前面、右面', '下面、上面', '前面、上面'], correct: 2, explanation: 'A 在前面。蚂蚁越过前面和上面共用的棱，接着走到上面的 B。' },
         { id: 'try-cross-surface', prompt: '这道题中，蚂蚁可以直接穿过正方体内部吗？', choices: ['可以', '不可以，只能沿表面走'], correct: 1, explanation: '题目规定蚂蚁只能沿表面走，所以路线的每一段都必须贴着正方体的面或棱。' },
       ],
     },
@@ -3976,7 +3956,6 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const page = document.querySelector('#home-template').content.cloneNode(true);
     const canvas = page.querySelector('canvas');
     const play = page.querySelector('#home-play');
-    const reset = page.querySelector('#home-reset');
     const start = page.querySelector('#home-start');
     start.firstElementChild.textContent = options.hasProgress ? '继续探索' : '开始探索';
     start.addEventListener('click', options.start);
@@ -3996,9 +3975,6 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       if (model.state().playing) { model.pause(); return; }
       if (previewPose) { previewPose = false; model.seek(0); }
       model.play();
-    });
-    reset.addEventListener('click', () => {
-      model.pause(); model.resetView(); model.seek(pose); previewPose = true;
     });
     update(model.state());
     return model;
@@ -4042,7 +4018,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
           const [start, hinge] = snapshot.points;
           const toHinge = Math.hypot(...start.map((coordinate,axis) => coordinate - hinge[axis]));
           crossed ||= snapshot.progress * snapshot.length > toHinge;
-          return paired(turned ? '播放蚂蚁，看看它怎么爬到第二个面。' : '拖动或按方向键，换一个角度。',
+          return paired(turned ? '播放蚂蚁，看看它怎么爬到第二个面。' : '直接拖动方块，换一个角度。',
             [step('转动方块',turned),step('看蚂蚁过棱',crossed)]);
         }
         if (id === 'unfold') {
@@ -4656,7 +4632,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       header.append(mascot);
     }
     const copy = element('div');
-    copy.append(element('h2', '', '给蚂蚁画路'), element('p', '', '在方块上点两下，或按住画线。'));
+    copy.append(element('h2', '', '给蚂蚁画路'), element('p', '', '在方块上点两下或按住画线。要换面，点「转方块」再拖。'));
     header.append(copy);
 
     const lab = element('div', 'lab play-route__lab');
@@ -4817,19 +4793,12 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       scene.pause();
       scene.configure({ model: null, showRoute: false, showAnt: false, surfaceMode: mode });
     }, 'play-route__clear');
-    const rotate = element('div', 'rotate-group play-route__rotate');
-    rotate.setAttribute('aria-label', '转动方块');
-    for (const [label, direction, name] of [['←', 'left', '向左转'], ['→', 'right', '向右转'], ['↑', 'up', '向上转'], ['↓', 'down', '向下转']]) {
-      const arrow = button(label, () => scene.rotate(direction));
-      arrow.setAttribute('aria-label', name);
-      rotate.append(arrow);
-    }
     actions.append(drawTab, orbitTab, play, clear);
 
     const status = element('p', 'lab-readout play-route__status');
     status.setAttribute('role', 'status');
     const centerHelp = element('details', 'play-route__center');
-    centerHelp.append(element('summary', '', '更多操作'), rotate);
+    centerHelp.append(element('summary', '', '用按钮画线'));
     const centerRow = element('div', 'optional-tools');
     const centerButtons = Object.entries(window.AntScene.faceNumbers).map(([face, number]) => {
       const control = button(`${number} 号面`, () => {
@@ -4922,32 +4891,22 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     root.setAttribute('aria-label', '方块彩蛋');
     const lab = node('div', 'play-egg-lab');
     const header = node('header', 'play-egg-head');
-    header.append(node('h2', '', '方块彩蛋'), node('p', '', '转动方块，点一点发光的地方。'));
+    header.append(node('h2', '', '方块彩蛋'), node('p', '', '拖动方块，点亮找到的闪光。'));
     const view = node('div', 'play-egg-view');
     const canvas = node('canvas', 'play-egg-canvas');
     canvas.setAttribute('aria-label', '可以拖动或按方向键旋转的立体方块');
     view.append(canvas);
-    const controls = node('div', 'play-egg-controls');
-    const more = node('details', 'play-egg-more');
-    const turns = node('div', 'lab-tool-group');
-    turns.setAttribute('aria-label', '方块视角');
-    more.append(node('summary', '', '更多操作'), turns);
-    controls.append(more);
     let scene;
-    for (const [direction, glyph, label] of [
-      ['left', '←', '向左转'], ['right', '→', '向右转'], ['up', '↑', '向上转'], ['down', '↓', '向下转'],
-    ]) turns.append(control('play-egg-turn', glyph, label, () => scene.rotate(direction)));
-    turns.append(control('play-egg-reset', '复位', '复位视角', () => scene.resetView()));
     const hint = node('p', 'play-egg-hint');
     hint.setAttribute('aria-live', 'polite');
     hint.hidden = true;
-    controls.append(control('play-egg-hint-button', '找不到？', '查看找彩蛋的提示', event => {
+    const hintToggle = control('play-egg-hint-button', '找不到？', '查看找彩蛋的提示', event => {
       hint.hidden = !hint.hidden;
       event.currentTarget.setAttribute('aria-expanded', String(!hint.hidden));
       updateHint();
-    }));
-    controls.lastChild.setAttribute('aria-expanded', 'false');
-    lab.append(header, view, controls, hint);
+    });
+    hintToggle.setAttribute('aria-expanded', 'false');
+    lab.append(header, view, hintToggle, hint);
 
     const book = node('aside', 'play-egg-book');
     const bookHeader = node('div', 'play-egg-book-head');
@@ -5399,10 +5358,11 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     ['home','首页'],['faces','数六个面'],['plane','平面寻路'],['cross','跨过一条棱'],['grid','数格比路线'],
     ['unfold','展开找直线'],['exit','出门条'],['challenge','长方体挑战'],['play','蚂蚁游乐场'],
   ];
+  const dragHint = '直接拖动图形转一转';
   const views = {
-    faces: ['正方体模型',''], plane: ['蚂蚁赛跑','同起点 · 同速度'],
-    cross: ['蚂蚁的跨棱路线','爬行时也可以旋转视角'], grid: ['网格路线比较','点小段做标记'],
-    unfold: ['两个面怎样铺平','拖动 P 调整跨棱位置'], challenge: ['长方体网格','旋转查看 · 分开记录'],
+    faces: ['正方体模型',dragHint], plane: ['蚂蚁赛跑','同起点 · 同速度'],
+    cross: ['蚂蚁的跨棱路线',dragHint], grid: ['网格路线比较',dragHint],
+    unfold: ['两个面怎样铺平',dragHint], challenge: ['长方体网格',dragHint],
   };
   let scene, stageGuide, closePlayground, active, updateTimer, cloudMessage = cloudReady ? '已连接课堂课次，提交后请查看保存回执。' : '本地学习，尚未同步。';
   let assignmentSyncInProgress = false;
@@ -5661,9 +5621,10 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const [heading,hint] = views[id];
     const lab = document.querySelector('#lab-template').content.firstElementChild.cloneNode(true);
     lab.querySelector('.lab-title').textContent = heading;
-    lab.querySelector('.lab-hint').textContent = hint;
+    const labHint = lab.querySelector('.lab-hint');
+    labHint.textContent = hint;
     const canvas = lab.querySelector('canvas');
-    canvas.setAttribute('aria-label', heading);
+    canvas.setAttribute('aria-label', id === 'plane' ? heading : `${heading}。拖动画布或用键盘方向键旋转。`);
     slot.append(lab);
     if (id === 'plane') {
       mountPlaneRace(lab,canvas,report,guide);
@@ -5678,10 +5639,10 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const faceCount = faceIds.length;
     const faceButtons = new Map();
     const faceTally = isFaces ? el('span',{class:'face-tally',role:'status','aria-atomic':'true'}) : null;
-    if (faceTally) lab.querySelector('.lab-hint').replaceWith(faceTally);
+    if (faceTally) labHint.replaceWith(el('span',{class:'face-lab-hints'},labHint,faceTally));
     const toolsPanel = el('div',{class:'lab-tool-panel'});
-    const more = el('details',{class:'lab-more'},el('summary',{},'更多操作'),toolsPanel);
-    const playback = el('div',{class:'lab-tool-group'});
+    const toolTitle = isFaces ? '用按钮找面' : id === 'unfold' ? '回看与记录' : '标记工具';
+    const more = el('details',{class:'lab-more'},el('summary',{},toolTitle),toolsPanel);
     const segmentTools = el('div',{class:'lab-tool-group'});
     const showCounts = id === 'grid' || id === 'challenge';
     const isUnfold = id === 'unfold';
@@ -5693,7 +5654,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const routeButtons = [];
     let currentModel = lesson.models.cube;
     let mode = 'cube', variant = 'main';
-    let stretchControls, speedControl, nextSegmentButton;
+    let stretchControls, nextSegmentButton;
     let facePairButton, facePairNote, lastPairSelection, currentTarget, unfoldQuizReached = false;
     const activity = window.AntQuests.activity(id);
     if (['grid','unfold','challenge'].includes(id)) { mode = id; currentModel = lesson.models[id]; }
@@ -5717,20 +5678,18 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     let marksByRoute = loadRouteMarks();
     const flags = () => ({mode, variant, model:currentModel, route:0, grid:showCounts || isUnfold,
       showRoute:!isFaces, showAnt:!isFaces, showLabels:true, numberFaces:isFaces, faceStickers:isFaces, cross:.25, fold:0,
-      faceMarks:isFaces ? faceMarks : undefined, segmentMarks:isCounting() ? marksByRoute[0] : undefined,
-      speed:Number(speedControl?.value || 1)});
-    const toggle = button('▶ 播放蚂蚁',() => {
+      faceMarks:isFaces ? faceMarks : undefined, segmentMarks:isCounting() ? marksByRoute[0] : undefined});
+    const crossQuiz = id === 'cross' ? button('去答题 →',() => focusQuiz(lab),'primary lab-action') : null;
+    const toggle = crossQuiz && button('▶ 看蚂蚁跨棱',() => {
       if (scene.state().playing) scene.pause();
       else {
+        if (!crossQuiz.hidden) scene.seek(0);
         scene.play();
-        if (id === 'cross') canvas.scrollIntoView({block:'nearest'});
+        canvas.scrollIntoView({block:'nearest'});
       }
-    },id === 'cross' ? 'primary lab-action' : 'soft');
-    const crossQuiz = id === 'cross' ? button('去答题 →',() => focusQuiz(lab),'primary lab-action') : null;
+    },'primary lab-action');
     if (crossQuiz) lab.classList.add('cross-lab');
-    const seek = range('爬行进度',0,value => { scene.pause(); scene.seek(value); });
     const cross = range('跨棱位置 P',25,value => scene.configure({cross:value,solved:false}));
-    const fold = range('展开程度',0,value => scene.configure({fold:value}));
     const foldBack = button('折回立体',() => scene.animateFold(0));
     const foldButton = button('展开这两个面',() => {
       const {fold:folded, solved} = scene.state();
@@ -5801,10 +5760,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       }
     }
     function onChange(snapshot) {
-      toggle.textContent = snapshot.playing ? 'Ⅱ 暂停爬行' : snapshot.progress >= 1 ? '↻ 再走一遍' : id === 'cross' ? '▶ 看蚂蚁跨棱' : '▶ 播放蚂蚁';
-      seek.input.value = Math.round(snapshot.progress * 100);
       cross.input.value = Math.round((snapshot.cross || 0) * 100);
-      fold.input.value = Math.round((snapshot.fold || 0) * 100);
       routeButtons.forEach((control,i) => control.setAttribute('aria-pressed',String(i === snapshot.route)));
       if (isFaces) {
         const found = snapshot.faces || [];
@@ -5818,7 +5774,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
           faceTally.dataset.remaining = String(remaining);
           if (remaining) faceTally.replaceChildren('还剩 ',el('strong',{class:'face-tally-number',text:String(remaining)}),' 个面');
           else faceTally.textContent = '✓ 找齐啦！';
-          readout.textContent = remaining ? '点空白面看图案。拖动方块，找藏起来的面。' : `已点亮 ${faceCount} 个面，可以去答题了。`;
+          readout.textContent = remaining ? '点空白面看图案。' : `已点亮 ${faceCount} 个面，可以去答题了。`;
         }
         faceButtons.forEach((control,face) => control.setAttribute('aria-pressed',String(found.includes(face))));
         if (facePairNote && lastPairSelection !== snapshot.selectedFace) facePairNote.hidden = true;
@@ -5840,6 +5796,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       } else if (isUnfold) {
         lengthStatus.textContent = formatLength(snapshot.length);
         const flat = snapshot.fold >= .98;
+        labHint.textContent = flat ? '拖动 P，比一比路线长度' : dragHint;
         const straight = flat && snapshot.solved;
         const text = straight ? `✓ 已拉直成线段 AB　${lengthStatus.textContent}`
           : `当前路线 ${lengthStatus.textContent}　${flat ? '两个面已铺平' : 'P 在两个面共用的棱上'}`;
@@ -5855,7 +5812,9 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       const ready = report(evidence, variant);
       if (crossQuiz) {
         crossQuiz.hidden = !ready || snapshot.playing || evidence.count < evidence.total;
-        toggle.hidden = !crossQuiz.hidden;
+        toggle.classList.toggle('primary',crossQuiz.hidden);
+        toggle.textContent = snapshot.playing ? 'Ⅱ 暂停爬行' : !crossQuiz.hidden || snapshot.progress >= 1
+          ? '↻ 再看一次' : snapshot.progress > 0 ? '▶ 继续爬行' : '▶ 看蚂蚁跨棱';
       }
       if (isUnfold) foldButton.hidden = !evidence.steps[0].done && !ready;
       if (facePairButton) facePairButton.hidden = !ready || !snapshot.selectedFace;
@@ -5869,43 +5828,28 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       },'lab-route-choice')));
       controls.append(...routeButtons);
     }
-    if (!isFaces) {
-      const replay = button('从头播放',() => { scene.pause(); scene.seek(0); scene.play(); });
-      speedControl = el('select',{'aria-label':'爬行速度',class:'speed'},el('option',{value:'1',text:'正常速度'}),el('option',{value:'.55',text:'慢速观察'}));
-      speedControl.addEventListener('change',() => scene.configure({speed:Number(speedControl.value)}));
-      if (crossQuiz) controls.append(toggle,crossQuiz);
-      else playback.append(toggle);
-      playback.append(replay,speedControl,seek.row);
-      toolsPanel.append(playback);
-    }
-    {
-      const rotate = el('div',{class:'rotate-group','aria-label':'按键转动视角'});
-      for (const [dir,label,name] of [['left','←','向左转'],['right','→','向右转'],['up','↑','向上转'],['down','↓','向下转']]) {
-        const arrow = button(label,() => scene.rotate(dir)); arrow.setAttribute('aria-label',name); rotate.append(arrow);
+    if (crossQuiz) controls.append(toggle,crossQuiz);
+    if (isFaces) {
+      const faceTools = el('div',{class:'lab-tool-group face-picker',role:'group','aria-label':'用按钮查看和标记各面'});
+      const numbered = Object.entries(faceNumbers).sort((left,right) => left[1]-right[1]);
+      for (const [face, number] of numbered) {
+        const control = button(`${number} 号面`,() => {scene.markFace(face); scene.flash(face);});
+        faceButtons.set(face,control);
+        faceTools.append(control);
       }
-      toolsPanel.prepend(el('div',{class:'lab-tool-group'},rotate,button('复位视角',() => scene.resetView())));
-      if (isFaces) {
-        const faceTools = el('div',{class:'lab-tool-group face-picker',role:'group','aria-label':'用按钮查看和标记各面'});
-        const numbered = Object.entries(faceNumbers).sort((left,right) => left[1]-right[1]);
-        for (const [face, number] of numbered) {
-          const control = button(`${number} 号面`,() => {scene.markFace(face); scene.flash(face);});
-          faceButtons.set(face,control);
-          faceTools.append(control);
-        }
-        facePairNote = el('p',{class:'face-pair-note',hidden:'',role:'status'});
-        facePairButton = button('看相对面', () => {
-          lastPairSelection = scene.state().selectedFace;
-          const number = faceNumbers[lastPairSelection];
-          const across = oppositeFaces[number];
-          const acrossFace = numbered.find(([, n]) => n === across)?.[0];
-          if (!acrossFace) return;
-          scene.flash(acrossFace);
-          facePairNote.textContent = `${number} 号面和 ${across} 号面相对。转动后，它们还是一对。`;
-          facePairNote.hidden = false;
-        });
-        faceTools.append(facePairButton,facePairNote);
-        toolsPanel.append(faceTools);
-      }
+      facePairNote = el('p',{class:'face-pair-note',hidden:'',role:'status'});
+      facePairButton = button('看相对面', () => {
+        lastPairSelection = scene.state().selectedFace;
+        const number = faceNumbers[lastPairSelection];
+        const across = oppositeFaces[number];
+        const acrossFace = numbered.find(([, n]) => n === across)?.[0];
+        if (!acrossFace) return;
+        scene.flash(acrossFace);
+        facePairNote.textContent = `${number} 号面和 ${across} 号面相对。转动后，它们还是一对。`;
+        facePairNote.hidden = false;
+      });
+      faceTools.append(facePairButton,facePairNote);
+      toolsPanel.append(faceTools);
     }
     if (showCounts) {
       nextSegmentButton = button('点亮下一段', () => {
@@ -5924,7 +5868,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     }
     if (isUnfold) {
       controls.append(el('div',{class:'lab-tool-group unfold-main'},cross.row,foldButton));
-      toolsPanel.append(foldBack,fold.row);
+      toolsPanel.append(foldBack);
       toolsPanel.append(button('记录这次路线',() => {
         const snapshot = scene.state();
         const table = extra.querySelector('tbody');
@@ -5935,7 +5879,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       const tableWrap = el('div',{class:'table-wrap',hidden:''},el('table',{},el('caption',{},'我记录的路线'),el('thead',{},el('tr',{},el('th',{},'跨棱位置'),el('th',{},'路线长度'))),el('tbody')));
       extra.append(tableWrap);
     }
-    controls.append(more);
+    if (toolsPanel.childElementCount) controls.append(more);
     onChange(scene.state());
     return (nextMode) => {
       if (id !== 'challenge' || nextMode === variant) return;
@@ -5948,8 +5892,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       marksByRoute = loadRouteMarks();
       scene.configure({...flags(),grid:!stretching,showRoute:!stretching,stretch:0});
       routeButtons.forEach(control => { control.hidden = stretching; });
-      playback.hidden = stretching || nextMode === 'nets';
-      segmentTools.hidden = stretching || nextMode === 'nets';
+      more.hidden = !isCounting();
       more.open = false;
       stretchControls.hidden = !stretching;
       stretchControls.querySelector('input').value = 0;
