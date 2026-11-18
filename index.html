@@ -1316,6 +1316,100 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 .play-route__header h2 { margin: 0; color: #244a2a; font-weight: 850; }
 .play-route__header p { margin: 2px 0 0; color: #425945; font-size: .98rem; }
 .play-route__mascot { object-fit: contain; }
+.play-route__missions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 12px;
+  padding: 10px clamp(10px, 2vw, 18px);
+  border: 1px solid #a2b97d;
+  border-radius: 16px;
+  background: #f3f8df;
+  box-shadow: 0 3px #e1e9c8;
+}
+.play-route__missions h3 { margin: 0; color: #244a2a; font-size: 1rem; font-weight: 900; }
+.play-route__goals { display: flex; flex-wrap: wrap; gap: 5px 7px; }
+.play-route__goals .play-route__goal {
+  position: relative;
+  min-height: 37px;
+  padding: 4px 10px;
+  border: 1px solid #a8b885;
+  border-radius: 11px;
+  background: #fffff4;
+  color: #28533b;
+  font-size: .86rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+.play-route__goals .play-route__goal[aria-pressed="true"] {
+  border-color: #6c8b35;
+  background: #ddefa2;
+  box-shadow: inset 0 0 0 1px #6c8b35, 0 2px #8da85e;
+}
+.play-route__goal.is-earned::after {
+  content: "✓";
+  position: absolute;
+  inset: -6px -4px auto auto;
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #2d663e;
+  color: white;
+  font-size: .64rem;
+}
+.play-route__mission-prompt {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #425934;
+  font-size: .88rem;
+}
+.play-route__passport {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 11px;
+}
+.play-route__visit { color: #214731; font-weight: 850; font-size: .91rem; font-variant-numeric: tabular-nums; }
+.play-route__faces { display: flex; gap: 4px; }
+.play-route__face {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 27px;
+  border: 1px solid #b6c59c;
+  border-radius: 7px;
+  background: #fcfff2;
+  color: #49623c;
+  font-size: .8rem;
+  font-weight: 800;
+}
+.play-route__face.is-visited {
+  border-color: #a17831;
+  background: #ffdb7d;
+  color: #633c0a;
+  box-shadow: 0 2px #b28a44;
+  animation: route-stamp .38s ease-out both;
+}
+@keyframes route-stamp {
+  30% { transform: scale(1.32) rotate(-10deg); }
+  70% { transform: scale(.94) rotate(3deg); }
+}
+.play-route__mission-feedback {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 7px 10px;
+  border-radius: 9px;
+  background: #fff5d5;
+  color: #5e491b;
+  font-size: .88rem;
+  font-weight: 780;
+}
+.play-route__mission-feedback.is-passed { background: #ffe6a4; color: #573504; animation: route-win .35s ease-out both; }
+@keyframes route-win { 40% { transform: translateY(-3px); } }
 .play-route__lab {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(148px, 22%);
@@ -1392,9 +1486,13 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
   .play-route__actions { display: flex; padding: 10px 0; }
   .play-route__status, .play-route__center { padding-inline: 3px; }
 }
+@media (max-width: 465px) {
+  .play-route__missions { grid-template-columns: minmax(0,1fr); gap: 7px; }
+  .play-route__goals .play-route__goal { padding-inline: 8px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .playpark .playpark-tab { transition: none; }
-  .play-route__spark { animation: none; }
+  .play-route__spark, .play-route__face.is-visited, .play-route__mission-feedback.is-passed { animation: none; }
 }
 
 .play-eggs {
@@ -1499,7 +1597,7 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 
 .play-egg-stickers {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 7px;
   margin-block: 11px;
 }
@@ -1518,6 +1616,18 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 
 .play-egg-stickers .play-egg-sticker:disabled { opacity: 1; }
 .play-egg-stickers .play-egg-sticker.is-found { background: #fff0bc; border: 1px solid #d5ae57; box-shadow: 0 2px 0 #e6d493; }
+.play-egg-stickers .play-egg-sticker.is-paired { background: #e1f2b8; border-color: #83a463; box-shadow: 0 2px 0 #c8e299; }
+
+.play-egg-pair {
+  margin-bottom: 10px;
+  padding: 9px 10px;
+  border: 1px solid #a8c17e;
+  border-radius: 10px;
+  background: #eef6d7;
+  color: #33572d;
+}
+.play-egg-pair strong { display: block; font-size: .89rem; }
+.play-egg-pair p { margin: 4px 0 0; font-size: .82rem; line-height: 1.45; }
 
 .play-egg-reveal {
   position: relative;
@@ -1592,7 +1702,7 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 
 @media (max-width: 860px) {
   .play-eggs { grid-template-columns: minmax(0, 1fr); }
-  .play-egg-stickers { grid-template-columns: repeat(2, minmax(0, 76px)); }
+  .play-egg-stickers { grid-template-columns: repeat(3, minmax(0, 76px)); }
 }
 
 @media (max-width: 420px) {
@@ -1695,6 +1805,38 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
   border-radius: inherit;
   pointer-events: none;
 }
+
+.play-feed-trace {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.play-feed-trace polyline {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.play-feed-trace-walked { stroke: #ae4b25; stroke-width: 5; }
+.play-feed-trace-direct { stroke: #21603a; stroke-width: 3.5; stroke-dasharray: 6 5; }
+.play-feed-comparison {
+  margin-top: 10px;
+  padding: 10px 13px;
+  border: 1px solid #a2b97d;
+  border-radius: 13px;
+  background: #f5f8e1;
+}
+.play-feed-comparison[hidden], .play-feed-legend [hidden] { display: none; }
+.play-feed-legend { display: flex; flex-wrap: wrap; gap: 6px 15px; font-size: .84rem; }
+.play-feed-legend b { display: inline-flex; align-items: center; gap: 5px; }
+.play-feed-legend b::before { content: ''; width: 20px; border-top: 3px solid currentColor; }
+.play-feed-legend .play-feed-direct-key::before { border-top-style: dashed; }
+.play-feed-walked-key { color: #943918; }
+.play-feed-direct-key { color: #255e39; }
+.play-feed-takeaway { margin: 4px 0 0; color: #29472e; font-size: .92rem; font-weight: 770; }
 
 .play-feed-field::before {
   background:
@@ -2067,6 +2209,149 @@ button:not(:disabled):active, .rail-link:active, .home-missions a:active, .choic
 }
 
 @media print { .play-feed { display: none; } }
+
+.playpark .playpark-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.playpark .playpark-tab--shadow {
+  --key-top: #ebedff;
+  --key-bottom: #c9c9f1;
+  --key-line: #918bbf;
+}
+
+.play-shadow {
+  --shadow-ink: #2c3053;
+  --shadow-edge: #c7c4e3;
+  color: var(--shadow-ink);
+}
+.play-shadow__header { margin-bottom: 11px; }
+.play-shadow__header h2, .play-shadow__gallery h3 { color: var(--shadow-ink); margin: 0; }
+.play-shadow__header p { color: #555b73; margin: 3px 0 0; font-size: .92rem; }
+.play-shadow__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(185px, 1fr);
+  gap: 10px;
+}
+.play-shadow__model, .play-shadow__display, .play-shadow__gallery {
+  border: 1px solid var(--shadow-edge);
+  border-radius: 17px;
+  box-shadow: 0 3px 0 #d9d7e9;
+}
+.play-shadow__model {
+  min-width: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 53%, #9eadd05e, transparent 64%),
+    radial-gradient(#d9dbff55 1px, transparent 1.5px) 0 0 / 17px 17px,
+    #292f4e;
+}
+.play-shadow__canvas {
+  width: 100%;
+  height: clamp(230px, 38vh, 360px);
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+.play-shadow__canvas:active { cursor: grabbing; }
+.play-shadow__canvas:focus-visible { outline: 3px solid #ffe6a6; outline-offset: -5px; }
+.play-shadow__display {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: #f0eef9;
+}
+.play-shadow__caption { text-align: center; font-size: .88rem; font-weight: 850; line-height: 1.35; }
+.play-shadow__caption span { display: block; }
+.play-shadow__caption span:first-child { color: #464e66; }
+.play-shadow__caption span + span { color: #535087; font-size: 1.08em; }
+.play-shadow__paper {
+  display: grid;
+  width: min(100%, 150px);
+  aspect-ratio: 1;
+  align-items: center;
+  justify-items: center;
+  border: 1px solid #d9c18c;
+  border-radius: 16px;
+  background: radial-gradient(circle at center, #fff9e6, #f6e7b8 76%, #e9d399);
+  box-shadow: inset 0 0 0 3px #fff8e1, 0 3px 5px #5e4c6121;
+}
+.play-shadow__silhouette {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--stamp-ink, #3b3e5e);
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+.play-shadow button.play-shadow__action {
+  min-height: 44px;
+  padding: 6px 19px;
+  border: 1px solid #48416e;
+  border-radius: 11px;
+  background: #575082;
+  color: #fff9ec;
+  box-shadow: 0 3px 0 #383352;
+  font-weight: 850;
+}
+.play-shadow button.play-shadow__action:hover { background: #49416f; }
+.play-shadow button.play-shadow__action:active { box-shadow: 0 1px 0 #383352; }
+.play-shadow__gallery {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 250px) minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 9px 13px;
+  background: #fffaf0;
+}
+.play-shadow__book {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.play-shadow__cell {
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 2px dashed #b3a58d;
+  border-radius: 9px;
+  background: #ffedba;
+}
+.play-shadow__cell.is-empty { color: #8d816d; background: #f6f1e8; font-size: 1.27rem; }
+.play-shadow__cell:not(.is-empty) { grid-template-rows: minmax(0, 1fr) auto; }
+.play-shadow__cell .play-shadow__silhouette { width: auto; height: 100%; aspect-ratio: 1; }
+.play-shadow__edge-count { padding-bottom: 3px; color: #523f32; font-size: .69rem; font-weight: 850; line-height: 1.15; }
+.play-shadow__cell.is-new { animation: play-shadow-stamp .29s cubic-bezier(.22,.82,.41,1.25) both; }
+.play-shadow__message { margin: 0; color: #504c65; font-size: .87rem; }
+
+@keyframes play-shadow-stamp {
+  0% { opacity: .4; transform: scale(1.2) rotate(-8deg); }
+  100% { opacity: 1; transform: none; }
+}
+@media (max-width: 850px) {
+  .playpark .playpark-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .play-shadow__layout { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .play-shadow__canvas { height: clamp(180px, 32vh, 245px); }
+  .play-shadow__display {
+    grid-template-columns: minmax(74px, 100px) max-content;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    gap: 5px 13px;
+  }
+  .play-shadow__paper { grid-area: 1 / 1 / 3 / 2; }
+  .play-shadow__caption { align-self: end; }
+  .play-shadow button.play-shadow__action { align-self: start; }
+  .play-shadow__gallery { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .play-shadow__book { max-width: 210px; width: 100%; }
+  .play-shadow__message:empty { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .play-shadow__cell.is-new { animation: none; }
+}
 
 .exit-settlement {
   --settlement-accent: #d6ed8b;
@@ -3412,6 +3697,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       const relevant = projection(geometry);
       const visible = new Set(relevant.filter(face => transformNormal(normals[face], face)[2] > .001));
       for (const face of visible) drawFace(face, geometry[face]);
+      settings.onProjectedFaces?.(hitFaces.flatMap(({corners}) => corners.map(point => [...point])));
       if ((settings.mode === 'unfold' || activeFocus === 'hinge') && (visible.has('front') || visible.has('top'))) {
         const edge = hingePoints.map(p => project(p, 'front'));
         line(edge[0], edge[1], activeFocus === 'hinge' ? '#ffc348' : '#3f6359', activeFocus === 'hinge' ? 6 : 2.2, [5, 4]);
@@ -4588,6 +4874,23 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
   const maxSegments = 180;
   const distance = (a, b) => Math.hypot(...a.map((n, i) => n - b[i]));
 
+  function walkedFaces(points, faces, progress) {
+    const lengths = faces.map((_, i) => distance(points[i], points[i + 1]));
+    let remaining = lengths.reduce((sum, length) => sum + length, 0) * progress;
+    const visited = new Set();
+    for (let i = 0; i < faces.length && remaining > 1e-8; i++) {
+      const face = faces[i];
+      const [normal] = planes[face];
+      const entersFace = points[i].every((a, axis) => {
+        const mid = (a + points[i + 1][axis]) / 2;
+        return axis === normal || (mid > 1e-8 && mid < dimensions[axis] - 1e-8);
+      });
+      if (lengths[i] > 1e-8 && entersFace) visited.add(face);
+      remaining -= lengths[i];
+    }
+    return visited;
+  }
+
   function connect(from, to) {
     if (from.face === to.face) return [{ point: to.point, face: from.face }];
     const [fromAxis, fromValue] = planes[from.face];
@@ -4634,6 +4937,40 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const copy = element('div');
     copy.append(element('h2', '', '给蚂蚁画路'), element('p', '', '在方块上点两下或按住画线。要换面，点「转方块」再拖。'));
     header.append(copy);
+
+    const missions = element('section', 'play-route__missions');
+    const missionTitle = element('h3', '', '面面探险');
+    const missionChoices = element('div', 'play-route__goals');
+    missionChoices.setAttribute('role', 'group');
+    missionChoices.setAttribute('aria-label', '任选一个路线任务');
+    const missionPrompt = element('p', 'play-route__mission-prompt');
+    const progressRow = element('div', 'play-route__passport');
+    const visit = element('span', 'play-route__visit');
+    visit.setAttribute('role', 'status');
+    const faceStamps = element('div', 'play-route__faces');
+    faceStamps.setAttribute('aria-label', '走过的面');
+    const numberedFaces = Object.entries(window.AntScene.faceNumbers).sort(([, a], [, b]) => a - b);
+    const stamps = new Map(numberedFaces.map(([face, number]) => {
+      const stamp = element('span', 'play-route__face', String(number));
+      faceStamps.append(stamp);
+      return [face, stamp];
+    }));
+    const feedback = element('p', 'play-route__mission-feedback');
+    feedback.setAttribute('role', 'status');
+    feedback.hidden = true;
+    let target = 0, finishedTarget = null;
+    const earned = new Set();
+    const missionButtons = [0, 4, 5, 6].map(goal => {
+      const control = button(goal ? `${goal} 个面` : '自由画', () => {
+        target = goal;
+        redraw();
+      }, 'play-route__goal');
+      control.dataset.target = goal;
+      missionChoices.append(control);
+      return control;
+    });
+    progressRow.append(visit, faceStamps);
+    missions.append(missionTitle, missionChoices, missionPrompt, progressRow, feedback);
 
     const lab = element('div', 'lab play-route__lab');
     const viewport = element('div', 'screen play-route__screen');
@@ -4697,6 +5034,39 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     function redraw(snapshot = scene.state()) {
       const finished = wasPlaying && !snapshot.playing && snapshot.progress === 1 && lastHit;
       wasPlaying = snapshot.playing;
+      const visited = faces.length ? walkedFaces(points, faces, snapshot.progress) : new Set();
+      if (snapshot.progress < 1) finishedTarget = null;
+      if (finished) {
+        finishedTarget = target;
+        if (target && visited.size >= target) earned.add(target);
+      }
+      const hasResult = finishedTarget === target && target > 0;
+      const passed = hasResult && visited.size >= target;
+      for (const control of missionButtons) {
+        const goal = Number(control.dataset.target);
+        const done = earned.has(goal);
+        control.setAttribute('aria-pressed', String(goal === target));
+        control.classList.toggle('is-earned', done);
+        control.setAttribute('aria-label', goal ? `走过至少 ${goal} 个不同的面${done ? '，已完成' : ''}` : '自由画');
+      }
+      const prompt = target ? `让蚂蚁走过至少 ${target} 个不同的面。` : '随便画一条路，看蚂蚁会走过哪些面。';
+      if (missionPrompt.textContent !== prompt) missionPrompt.textContent = prompt;
+      const count = `走过 ${visited.size} 个面`;
+      if (visit.textContent !== count) visit.textContent = count;
+      for (const [face, stamp] of stamps) {
+        const reached = visited.has(face);
+        stamp.classList.toggle('is-visited', reached);
+        stamp.setAttribute('aria-label', `${window.AntScene.faceNumbers[face]} 号面${reached ? '已走过' : '还没走过'}`);
+      }
+      const result = !hasResult ? '' : passed
+        ? `🏅 任务完成！走过了 ${visited.size} 个不同的面。试试换条路！`
+        : `还差 ${target - visited.size} 个面。转一转，把路接到没走过的面。`;
+      if (feedback.textContent !== result) feedback.textContent = result;
+      feedback.hidden = !hasResult;
+      feedback.classList.toggle('is-passed', passed);
+      if (snapshot.faces.length !== visited.size || snapshot.faces.some(face => !visited.has(face))) {
+        scene.configure({faceMarks: [...visited]});
+      }
       if (finished) {
         cue(lastHit, 'finish');
         chooseMode('draw');
@@ -4813,12 +5183,12 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       return [face, control];
     });
     centerHelp.append(centerRow);
-    centerHelp.addEventListener('toggle', () => scene.configure({ numberFaces: centerHelp.open }));
+    centerHelp.addEventListener('toggle', () => redraw());
     lab.append(viewport, actions, status, centerHelp);
-    root.append(header, lab);
+    root.append(header, missions, lab);
     container.append(root);
 
-    scene = window.AntScene.mount(canvas, { mode: 'cube', appearance: 'cover', showAnt: false, showRoute: false,
+    scene = window.AntScene.mount(canvas, { mode: 'cube', appearance: 'cover', showAnt: false, showRoute: false, numberFaces: true,
       facePick: false, surfaceMode: mode, surfaceInput: drawSurface, onChange: redraw });
     redraw();
 
@@ -4829,7 +5199,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     };
   }
 
-  window.AntPlayRoute = { mount };
+  window.AntPlayRoute = { mount, walkedFaces };
 })();
 
 </script>
@@ -4838,9 +5208,13 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
   'use strict';
 
   const storageKey = 'ant-route-play-eggs.v1';
+  const fruitPair = [
+    { id:'apple', face:'front', point:[.5, .54], sticker:'🍎', name:'苹果贴纸', message:'找到一颗苹果！' },
+    { id:'berry', face:'back', point:[.5, .54], sticker:'🍓', name:'草莓贴纸', message:'找到一颗草莓！' },
+  ];
   const eggs = [
-    { id:'berry', face:'back', point:[.5, .54], sticker:'🍓', name:'草莓贴纸', message:'找到背面藏着的草莓！' },
-    { id:'nap', face:'bottom', point:[.5, .5], sticker:'💤', name:'午睡贴纸', message:'原来小蚂蚁在方块底下打盹！' },
+    ...fruitPair,
+    { id:'nap', face:'bottom', point:[.5, .5], sticker:'💤', name:'午睡贴纸', message:'原来小蚂蚁藏在这里打盹！' },
   ];
 
   function node(tag, className, text) {
@@ -4887,11 +5261,13 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
 
   function mount(container, {img} = {}) {
     const found = readStickers();
+    const hasPair = () => fruitPair.every(egg => found.has(egg.id));
     const root = node('section', 'play-eggs');
     root.setAttribute('aria-label', '方块彩蛋');
     const lab = node('div', 'play-egg-lab');
     const header = node('header', 'play-egg-head');
-    header.append(node('h2', '', '方块彩蛋'), node('p', '', '拖动方块，点亮找到的闪光。'));
+    const goal = node('p', 'play-egg-goal', '拖动方块，点闪光，找一对相对面的水果。');
+    header.append(node('h2', '', '方块彩蛋'), goal);
     const view = node('div', 'play-egg-view');
     const canvas = node('canvas', 'play-egg-canvas');
     canvas.setAttribute('aria-label', '可以拖动或按方向键旋转的立体方块');
@@ -4917,7 +5293,10 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const reveal = node('div', 'play-egg-reveal');
     const message = node('p', 'play-egg-message');
     message.setAttribute('aria-live', 'polite');
-    book.append(bookHeader, stickers, reveal, message);
+    const pair = node('div', 'play-egg-pair');
+    pair.append(node('strong', '', '✓ 找到一对相对面！'),
+      node('p', '', '苹果和草莓像盒子两端的门。方块怎么转，它们还是一对。'));
+    book.append(bookHeader, stickers, pair, reveal, message);
 
     const spots = eggs.map((egg, index) => {
       const spot = control('play-egg-spot', '', '打开发光的彩蛋', () => discover(egg));
@@ -4935,13 +5314,16 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
 
     function updateHint() {
       if (hint.hidden) return;
-      hint.textContent = found.size === eggs.length ? '两枚都找齐了，点收藏里的贴纸再看一次。'
-        : found.has('berry') ? '换到比方块更低的地方，抬头看看。'
-        : found.has('nap') ? '转过侧面，再往后转一点。'
-        : '方块背后和底下都有地方可以找。';
+      hint.textContent = found.size === eggs.length ? '都找齐了，点收藏里的贴纸再看一次。'
+        : hasPair() ? '上下拖一拖，还藏着一个午睡彩蛋。'
+        : fruitPair.some(egg => found.has(egg.id)) ? '继续往同一方向转，找隔着方块的另一面。'
+        : '先点亮一个水果，再转一转找它相对的面。';
     }
 
     function updateCollection() {
+      const paired = hasPair();
+      pair.hidden = !paired;
+      goal.textContent = paired ? '找齐一对啦！看看贴纸收藏。' : '拖动方块，点闪光，找一对相对面的水果。';
       count.textContent = `${found.size} / ${eggs.length}`;
       count.setAttribute('aria-label', `已收集 ${found.size} 枚贴纸，共 ${eggs.length} 枚`);
       for (const [index, {egg, spot, spark, sticker}] of spots.entries()) {
@@ -4951,6 +5333,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
         spark.textContent = hasSticker ? egg.sticker : '✦';
         sticker.disabled = !hasSticker;
         sticker.classList.toggle('is-found', hasSticker);
+        sticker.classList.toggle('is-paired', paired && fruitPair.includes(egg));
         sticker.textContent = hasSticker ? egg.sticker : '?';
         sticker.setAttribute('aria-label', hasSticker ? `再看${egg.name}` : `尚未收集的贴纸 ${index + 1}`);
       }
@@ -4958,6 +5341,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     }
 
     function discover(egg) {
+      const hadPair = hasPair();
       if (!found.has(egg.id)) {
         found.add(egg.id);
         saveStickers(found);
@@ -4968,7 +5352,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       art.setAttribute('aria-hidden', 'true');
       art.append(egg.id === 'nap' ? sleepingAnt(img) : node('span', 'play-egg-fruit-art', egg.sticker));
       reveal.replaceChildren(art);
-      message.textContent = egg.message;
+      message.textContent = !hadPair && hasPair() ? '找齐苹果和草莓啦！' : egg.message;
     }
 
     function syncSpots() {
@@ -5011,6 +5395,17 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     { id: 'lemon', emoji: '🍋', name: '柠檬', reply: '哇，好酸！', face: '﹏', burst: ['ϟ', '✧', 'ϟ'] },
   ];
   const readyText = '我想尝尝你选的水果！';
+  const svgNamespace = 'http://www.w3.org/2000/svg';
+  const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+  const centerOf = node => {
+    const box = node.getBoundingClientRect();
+    return {x: box.left + box.width / 2, y: box.top + box.height / 2};
+  };
+  function measure(points) {
+    const direct = distance(points[0], points.at(-1));
+    const drawn = points.slice(1).reduce((sum, point, i) => sum + distance(points[i], point), 0);
+    return {direct, drawn, close: drawn - direct <= Math.max(4, direct * .06)};
+  }
 
   function element(tag, name, content) {
     const node = document.createElement(tag);
@@ -5038,8 +5433,8 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const top = element('header', 'play-feed-header');
     const intro = element('div', 'play-feed-intro');
     intro.append(
-      element('h2', 'play-feed-title', '小蚂蚁开饭啦'),
-      element('p', 'play-feed-guide', '把水果拖到嘴边，或选好水果再点「喂给小蚂蚁」。'),
+      element('h2', 'play-feed-title', '果园捷径'),
+      element('p', 'play-feed-guide', '拖水果到蚂蚁嘴边。直着送和绕着送，哪条路短？'),
     );
     const topControls = element('div', 'play-feed-header-controls');
     const counter = element('output', 'play-feed-count');
@@ -5050,6 +5445,21 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     const field = element('div', 'play-feed-field');
     const foliage = decoration(element('div', 'play-feed-leaves'));
     for (let index = 0; index < 5; index++) foliage.append(element('i', 'play-feed-leaf'));
+    const trace = decoration(document.createElementNS(svgNamespace, 'svg'));
+    trace.setAttribute('class', 'play-feed-trace');
+    const walkedLine = document.createElementNS(svgNamespace, 'polyline');
+    const directLine = document.createElementNS(svgNamespace, 'polyline');
+    walkedLine.setAttribute('class', 'play-feed-trace-walked');
+    directLine.setAttribute('class', 'play-feed-trace-direct');
+    trace.append(walkedLine, directLine);
+    const comparison = element('div', 'play-feed-comparison');
+    const legend = element('div', 'play-feed-legend');
+    const walkedKey = element('b', 'play-feed-walked-key', '你拖过的路');
+    legend.append(walkedKey, element('b', 'play-feed-direct-key', '直走的路'));
+    const takeaway = element('p', 'play-feed-takeaway');
+    takeaway.setAttribute('role', 'status');
+    comparison.append(legend, takeaway);
+    comparison.hidden = true;
 
     const tray = element('section', 'play-feed-tray');
     tray.setAttribute('aria-label', '挑选水果');
@@ -5097,8 +5507,8 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     bursts.append(...bits);
     ant.append(body, bursts, mouth);
     stage.append(speech, ant);
-    field.append(foliage, tray, stage);
-    game.append(top, field);
+    field.append(foliage, trace, tray, stage);
+    game.append(top, field, comparison);
     container.append(game);
 
     let count = 0;
@@ -5161,8 +5571,35 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     }
 
     function feedSelected() {
-      const rect = selected && tiles.get(selected.id).getBoundingClientRect();
-      feed(rect && {x: rect.left + rect.width / 2, y: rect.top + rect.height / 2});
+      const from = selected && centerOf(tiles.get(selected.id));
+      if (from) showComparison([from, centerOf(mouth)], true);
+      feed(from);
+    }
+
+    function clearTrace() {
+      walkedLine.removeAttribute('points');
+      directLine.removeAttribute('points');
+      comparison.hidden = true;
+    }
+
+    function paintTrace(points, {shortest = false, drawn = true} = {}) {
+      const box = field.getBoundingClientRect();
+      trace.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+      const coordinate = ({x,y}) => `${x - box.left},${y - box.top}`;
+      if (drawn) walkedLine.setAttribute('points', points.map(coordinate).join(' '));
+      else walkedLine.removeAttribute('points');
+      if (shortest) directLine.setAttribute('points', `${coordinate(points[0])} ${coordinate(points.at(-1))}`);
+      else directLine.removeAttribute('points');
+    }
+
+    function showComparison(points, isDirect = false) {
+      paintTrace(points, {shortest:true, drawn:!isDirect});
+      walkedKey.hidden = isDirect;
+      comparison.hidden = false;
+      const text = isDirect ? '绿线是线段，两点之间这条路最短。也可以拖水果，试试别的走法。'
+        : measure(points).close ? '快贴着绿线走啦！同一个起点和终点，直走最短。'
+        : '橙线绕得更远。绿线最短，沿它再送一颗试试！';
+      takeaway.textContent = text;
     }
 
     function overMouth(x, y) {
@@ -5185,7 +5622,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
 
     function beginDrag(event, option, tile) {
       if (drag || !event.isPrimary || event.button !== 0) return;
-      drag = { option, tile, pointer: event.pointerId, x: event.clientX, y: event.clientY, moved: false };
+      drag = { option, tile, pointer: event.pointerId, x: event.clientX, y: event.clientY, moved: false, points: [centerOf(tile)] };
       tile.setPointerCapture(event.pointerId);
     }
 
@@ -5194,6 +5631,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       if (!drag.moved) {
         if (Math.hypot(event.clientX - drag.x, event.clientY - drag.y) < 7) return;
         drag.moved = true;
+        clearTrace();
         select(drag.option);
         ghost = decoration(element('span', 'play-feed-ghost', drag.option.emoji));
         document.body.append(ghost);
@@ -5202,6 +5640,11 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       }
       ghost.style.left = `${event.clientX}px`;
       ghost.style.top = `${event.clientY}px`;
+      const point = {x: event.clientX, y: event.clientY};
+      if (distance(drag.points.at(-1), point) >= 4) {
+        drag.points.push(point);
+        paintTrace(drag.points);
+      }
       game.classList.toggle('over-mouth', overMouth(event.clientX, event.clientY));
     }
 
@@ -5209,12 +5652,18 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       if (!drag || drag.pointer !== event.pointerId) return;
       const moved = drag.moved;
       const fed = moved && overMouth(event.clientX, event.clientY);
+      const route = [...drag.points, centerOf(mouth)];
       clearDrag();
       if (!moved) return;
       // Pointer capture routes the synthetic post-drag click to the fruit button.
       ignorePointerClickUntil = performance.now() + 250;
-      if (fed) feed({x: event.clientX, y: event.clientY});
-      else status.textContent = '把水果放进嘴边的圆圈里。';
+      if (fed) {
+        showComparison(route);
+        feed({x: event.clientX, y: event.clientY});
+      } else {
+        clearTrace();
+        status.textContent = '把水果放进嘴边的圆圈里。';
+      }
     }
 
     for (const option of fruit) {
@@ -5231,17 +5680,26 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
       on(tile, 'pointerdown', event => beginDrag(event, option, tile));
       on(tile, 'pointermove', moveDrag);
       on(tile, 'pointerup', endDrag);
-      on(tile, 'pointercancel', clearDrag);
-      on(tile, 'lostpointercapture', clearDrag);
+      const cancel = () => {
+        if (drag?.tile !== tile) return;
+        clearDrag();
+        clearTrace();
+      };
+      on(tile, 'pointercancel', cancel);
+      on(tile, 'lostpointercapture', cancel);
     }
     on(game, 'keydown', event => {
-      if (event.key === 'Escape') clearDrag();
+      if (event.key === 'Escape' && drag) {
+        clearDrag();
+        clearTrace();
+      }
     });
     on(mouth, 'click', feedSelected);
     on(feedButton, 'click', feedSelected);
     on(reset, 'click', () => {
       stopReaction();
       clearDrag();
+      clearTrace();
       count = 0;
       select(null);
       game.removeAttribute('data-reaction');
@@ -5259,7 +5717,139 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     };
   }
 
-  window.AntPlayFeed = { mount };
+  window.AntPlayFeed = { mount, measure };
+})();
+
+</script>
+<script>
+(() => {
+  'use strict';
+
+  const stampLimit = 3;
+
+  function element(tag, className, text) {
+    const node = document.createElement(tag);
+    node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  function silhouette(projected) {
+    const sorted = [...projected].sort((first, second) => first[0] - second[0] || first[1] - second[1]);
+    const turn = (a, b, c) => (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+    const outlineHalf = points => {
+      const boundary = [];
+      for (const point of points) {
+        while (boundary.length > 1 && turn(boundary.at(-2), boundary.at(-1), point) <= .005) boundary.pop();
+        boundary.push(point);
+      }
+      return boundary.slice(0, -1);
+    };
+    const outline = [...outlineHalf(sorted), ...outlineHalf(sorted.reverse())];
+    if (outline.length < 3) return null;
+    const xs = outline.map(point => point[0]), ys = outline.map(point => point[1]);
+    const left = Math.min(...xs), right = Math.max(...xs), top = Math.min(...ys), bottom = Math.max(...ys);
+    const span = Math.max(right - left, bottom - top);
+    if (!span) return null;
+    const centerX = (left + right) / 2, centerY = (top + bottom) / 2;
+    const coordinate = offset => `${(50 + offset * 80 / span).toFixed(2)}%`;
+    const shape = `polygon(${outline.map(([x,y]) => `${coordinate(x-centerX)} ${coordinate(y-centerY)}`).join(', ')})`;
+    return {shape, edges:outline.length};
+  }
+
+  function mount(container) {
+    const game = element('section', 'play-shadow');
+    const heading = element('header', 'play-shadow__header');
+    heading.append(element('h2', '', '方块影子'), element('p', '', '试着正对一个面，再斜着看三个面。盖章比比影子有几条边。'));
+    const layout = element('div', 'play-shadow__layout');
+    const model = element('div', 'play-shadow__model');
+    const canvas = element('canvas', 'play-shadow__canvas');
+    canvas.tabIndex = 0;
+    canvas.setAttribute('aria-label', '可转动的方块。拖动模型或用键盘方向键转动。');
+    model.append(canvas);
+
+    const display = element('div', 'play-shadow__display');
+    const caption = element('div', 'play-shadow__caption');
+    const faceCount = element('span', '', '看到几个面？');
+    const edgeCount = element('span', '', '影子有几条边？');
+    caption.append(faceCount, edgeCount);
+    const paper = element('div', 'play-shadow__paper');
+    const shadow = element('span', 'play-shadow__silhouette');
+    shadow.setAttribute('aria-hidden', 'true');
+    paper.append(shadow);
+    const stamp = element('button', 'play-shadow__action', '盖个章');
+    stamp.type = 'button';
+    stamp.disabled = true;
+    display.append(caption, paper, stamp);
+    layout.append(model, display);
+
+    const gallery = element('div', 'play-shadow__gallery');
+    const galleryTitle = element('h3', '', '我的影子章');
+    const book = element('ol', 'play-shadow__book');
+    book.setAttribute('aria-label', '最近三枚影子章');
+    const status = element('p', 'play-shadow__message');
+    status.setAttribute('role', 'status');
+    gallery.append(galleryTitle, book, status);
+    game.append(heading, layout, gallery);
+    container.append(game);
+
+    let current = null;
+    let number = 0;
+    const prints = [];
+
+    function renderBook() {
+      const cells = Array.from({length:stampLimit}, (_,index) => {
+        const print = prints[index];
+        const cell = element('li', 'play-shadow__cell');
+        if (!print) {
+          cell.classList.add('is-empty');
+          cell.setAttribute('aria-hidden', 'true');
+          cell.textContent = '+';
+          return cell;
+        }
+        if (print.number === number) cell.classList.add('is-new');
+        cell.style.setProperty('--stamp-ink', ['#4e6844', '#97613d', '#625687'][(print.number - 1) % 3]);
+        const ink = element('span', 'play-shadow__silhouette');
+        ink.style.clipPath = print.shape;
+        ink.setAttribute('aria-hidden', 'true');
+        const label = element('span', 'play-shadow__edge-count', `${print.edges} 条边`);
+        cell.setAttribute('aria-label', `第 ${print.number} 枚影子章，${print.edges} 条边`);
+        cell.append(ink, label);
+        return cell;
+      });
+      book.replaceChildren(...cells);
+    }
+
+    stamp.addEventListener('click', () => {
+      if (!current) return;
+      prints.push({...current, number:++number});
+      if (prints.length > stampLimit) prints.shift();
+      renderBook();
+      status.textContent = `第 ${number} 枚盖好啦，影子有 ${current.edges} 条边！`;
+    });
+    renderBook();
+
+    const scene = window.AntScene.mount(canvas, {
+      mode:'cube', appearance:'cover', facePick:false, showAnt:false, showRoute:false, showLabels:false, grid:false,
+      onProjectedFaces(points) {
+        current = silhouette(points);
+        if (!current) return;
+        shadow.style.clipPath = current.shape;
+        const faces = `看到 ${points.length / 4} 个面`;
+        const edges = `影子有 ${current.edges} 条边`;
+        if (faces !== faceCount.textContent) faceCount.textContent = faces;
+        if (edges !== edgeCount.textContent) edgeCount.textContent = edges;
+        stamp.disabled = false;
+      },
+    });
+
+    return () => {
+      scene.destroy();
+      game.remove();
+    };
+  }
+
+  window.AntPlayShadow = {mount};
 })();
 
 </script>
@@ -5271,6 +5861,7 @@ window.AntModel={"vertices":[[-0.23149,0.01188,0.4331],[-0.21191,0.0282,0.44043]
     {id:'route', label:'画路线', icon:'✏️', get:() => window.AntPlayRoute},
     {id:'eggs', label:'找彩蛋', icon:'🥚', get:() => window.AntPlayEggs},
     {id:'feed', label:'喂水果', icon:'🍓', get:() => window.AntPlayFeed},
+    {id:'shadow', label:'方块影子', icon:'🔦', get:() => window.AntPlayShadow},
   ];
 
   function node(tag, attributes = {}, ...children) {
